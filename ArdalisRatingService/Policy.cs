@@ -12,6 +12,7 @@ public class Policy
     public string FullName { get; set; }
     public DateTime DateOfBirth { get; set; }
     public bool IsSmoker { get; set; }
+    //jbhbhjk
     public decimal Amount { get; set; }
 
     #endregion
