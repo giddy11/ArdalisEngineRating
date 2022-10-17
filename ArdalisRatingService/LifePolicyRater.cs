@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace ArdalisRatingService
 {
-    public class LifePolicyRater
+    public class LifePolicyRater : Rater
     {
-        public LifePolicyRater(RatingEngine engine, ConsoleLogger logger)
+        //public LifePolicyRater(RatingEngine engine, ConsoleLogger logger)
+        //{
+        //    _engine = engine;
+        //    _logger = logger;
+        //}
+
+        public LifePolicyRater(RatingEngine engine, ConsoleLogger logger) : base(engine, logger)
         {
-            _engine = engine;
-            _logger = logger;
         }
 
-        public void Rate(Policy policy)
+        public override void Rate(Policy policy)
         {
             _logger.Log("Rating LAND policy...");
             _logger.Log("Validating policy.");
@@ -49,12 +53,7 @@ namespace ArdalisRatingService
             _engine.Rating = baseRate;
         }
 
-
-
-
-
-
-
+        
 
         private readonly RatingEngine _engine;  //reference to the RatingEngine
         private readonly ConsoleLogger _logger;

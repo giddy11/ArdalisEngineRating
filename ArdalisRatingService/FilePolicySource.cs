@@ -10,7 +10,15 @@ namespace ArdalisRatingService
     {
         public string GetPolicyFromSource()
         {
-            return File.ReadAllText("policy.json");
+            Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "New folder"));
+
+            Console.WriteLine("Created");
+
+            
+
+            //return File.ReadAllText("C:\\Users\\gideon.edoghotu\\Desktop\\PersonalStudies\\SOLIDPrinciple\\ArdalisRatingService\\policy.json");
+
+            return File.ReadAllText(null); 
         }
     }
 }

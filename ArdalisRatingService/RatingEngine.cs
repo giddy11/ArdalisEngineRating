@@ -25,36 +25,20 @@ public class RatingEngine
         // load policy - open file policy.json
         string policyJson = PolicySource.GetPolicyFromSource();
 
-        var policy = JsonConvert.DeserializeObject<Policy>(policyJson, new StringEnumConverter());
+        var policy = PolicySerializer.GetPolicyFromJsonString(policyJson);
 
-        switch (policy.Type)
-        {
-            case PolicyType.Life:
-                var rater = new LifePolicyRater(this, this.Logger);
-                rater.Rate(policy);
-                break;
+        var factory = new RaterFactory();
 
-            case PolicyType.Land:
-                var rater2 = new LandPolicyRater(this, this.Logger);
-                rater2.Rate(policy);
-                break;
-
-            case PolicyType.Auto:
-                var rater3 = new AutoPolicyRater(this, this.Logger);
-                rater3.Rate(policy);
-                break;
-
-            default:
-                Logger.Log("Unknown policy type");
-                break;
-        }
+        var rater = factory.Create(policy, this);
+        rater?.Rate(policy);
 
         Logger.Log("Rating completed.");
     }
 
     public decimal Rating { get; set; }
-    public ConsoleLogger Logger { get; set; } //= new ConsoleLogger();
+    public ConsoleLogger Logger { get; set; } = new ConsoleLogger();
     public FilePolicySource PolicySource { get; set; } = new FilePolicySource();
+    public JsonPolicySerializer PolicySerializer { get; set; } = new JsonPolicySerializer();
 
 
 

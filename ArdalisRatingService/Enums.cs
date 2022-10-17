@@ -10,6 +10,7 @@ namespace ArdalisRatingService
     {
         Life,
         Land,
-        Auto
+        Auto,
+        Flood
     }
 }

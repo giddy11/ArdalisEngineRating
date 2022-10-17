@@ -6,15 +6,19 @@ using System.Threading.Tasks;
 
 namespace ArdalisRatingService
 {
-    public class AutoPolicyRater
+    public class AutoPolicyRater : Rater
     {
-        public AutoPolicyRater(RatingEngine engine, ConsoleLogger logger)
+        /*public AutoPolicyRater(RatingEngine engine, ConsoleLogger logger)
         {
             _engine = engine;
             _logger = logger;
+        }*/
+
+        public AutoPolicyRater(RatingEngine engine, ConsoleLogger logger) : base(engine, logger)
+        {
         }
 
-        public void Rate(Policy policy)
+        public override void Rate(Policy policy)
         {
             _logger.Log("Rating AUTO policy...");
             _logger.Log("Validating policy.");
