@@ -10,15 +10,15 @@ namespace ArdalisRatingService
     {
         public string GetPolicyFromSource()
         {
-            Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "New folder"));
+            //Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "New folder"));
 
-            Console.WriteLine("Created");
-
-            
 
             //return File.ReadAllText("C:\\Users\\gideon.edoghotu\\Desktop\\PersonalStudies\\SOLIDPrinciple\\ArdalisRatingService\\policy.json");
 
-            return File.ReadAllText(null); 
+            return File.ReadAllText("policy.json");
+
+            //return File.ReadAllText(null); 
+            // SRP  --> Can it be applied to other parts of the codebase apart from classes?
         }
     }
 }

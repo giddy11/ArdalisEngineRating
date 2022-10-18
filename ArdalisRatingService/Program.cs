@@ -19,7 +19,62 @@ else
 }
 
 
+var t = new InterestCalculator();
 
+var africanInterestRate = new AfricanNationalityInterestRate(); 
+
+var afr = t.CalculateInterest(africanInterestRate);
+
+
+class InterestCalculator
+{
+
+
+    //double CalculateInterest(Nationality nationality)
+    //{   
+
+    //    switch (nationality)
+    //    {
+    //        case Nationality.Nigerian:
+    //            return 0.1;
+
+    //        case Nationality.NotAfrican:
+    //            return 0.2;
+
+    //        case Nationality.African:
+    //            return 0.15;
+
+    //        default:
+    //            throw new Exception("Nationality Not accounted for");
+    //    }
+    //}
+
+
+    public double CalculateInterest(INationalityInterestRate nationalityInterestRate  )
+    {
+        return nationalityInterestRate.Rate();
+    }
+
+       
+}
+
+
+class AfricanNationalityInterestRate : INationalityInterestRate
+{
+    public double Rate() => 0.15;
+}
+
+interface INationalityInterestRate
+{
+    double Rate();
+}
+
+enum Nationality
+{
+    Nigerian,
+    African,
+    NotAfrican
+}
 
 
 
@@ -32,7 +87,7 @@ else
 otherwise, it will specify no rating was produced.
  
  
- 
+ class 
  
  
  
