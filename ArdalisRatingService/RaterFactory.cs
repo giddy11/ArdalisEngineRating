@@ -8,17 +8,17 @@ namespace ArdalisRatingService
 {
     public class RaterFactory
     {
-        public Rater Create(Policy policy, RatingEngine engine)
+        public Rater Create(Policy policy, IRatingContext context)
         {
             try
             {
                 return (Rater)Activator.CreateInstance(
                     Type.GetType($"ArdalisRatingService.{policy.Type}PolicyRater"),
-                    new object[] { engine, engine.Logger });
+                    new object[] { context });
             }
             catch
             {
-                return null;
+                return new UnKnownPolicyRater (context);
             }
             
             //switch (policy.Type)

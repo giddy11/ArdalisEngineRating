@@ -2,7 +2,7 @@
 {
     internal class UnKnownPolicyRater : Rater
     {
-        public UnKnownPolicyRater(RatingEngine engine, ConsoleLogger logger) : base(engine, logger)
+        public UnKnownPolicyRater(IRatingContext context) : base(context)
         {
         }
 

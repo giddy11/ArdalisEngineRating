@@ -14,7 +14,7 @@ namespace ArdalisRatingService
         //    _logger = logger;
         //}
 
-        public LifePolicyRater(RatingEngine engine, ConsoleLogger logger) : base(engine, logger)
+        public LifePolicyRater(IRatingContext context) : base(context)
         {
         }
 
